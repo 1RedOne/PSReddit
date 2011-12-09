@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Types>
+    <Type>
+        <Name>PowerReddit.Link</Name>
+        <Members>
+            <ScriptMethod>
+                <Name>GetComments</Name>
+                <Script> $this | Get-RedditComment</Script>
+            </ScriptMethod>
+            <ScriptMethod>
+                <Name>OpenUrl</Name>
+                <Script>(New-Object -com Shell.Application).Open($this.url)</Script>
+            </ScriptMethod>
+        </Members>
+    </Type>
+    <Type>
+        <Name>PowerReddit.Comment</Name>
+        <Members>
+            <ScriptProperty>
+                <Name>score</Name>
+                <GetScriptBlock>
+                $this.ups - $this.downs
+                </GetScriptBlock>
+            </ScriptProperty>
+        </Members>
+    </Type>
+</Types> 
+
