@@ -41,3 +41,12 @@ browser
     $top[0] | Get-RedditComment
 
 ... gets you the comments on just that top post
+
+##Authentication##
+
+    Connect-RedditSession
+    Get-RedditUserInfo
+    Disconnect-RedditSession
+
+... logs you in, gets information about the logged in user, then logs out.
+
