@@ -4,7 +4,7 @@
         <View>
             <Name>PowerReddit.Link</Name>
             <ViewSelectedBy>
-                <TypeName>PowerReddit.Link</TypeName>
+                <TypeName>PSReddit.Link</TypeName>
             </ViewSelectedBy>
             <TableControl>
                 <TableHeaders>
@@ -47,9 +47,9 @@
         </View>
 
         <View>
-            <Name>PowerReddit.Comment</Name>
+            <Name>PSReddit.Comment</Name>
             <ViewSelectedBy>
-                <TypeName>PowerReddit.Comment</TypeName>
+                <TypeName>PSReddit.Comment</TypeName>
             </ViewSelectedBy>
             <TableControl>
                 <TableHeaders>

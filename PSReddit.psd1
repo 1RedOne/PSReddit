@@ -5,7 +5,7 @@
 @{
 
 # Script module or binary module file associated with this manifest
-RootModule = 'PowerReddit.psm1'
+RootModule = 'PSReddit.psm1'
 
 # Version number of this module.
 ModuleVersion = '1.0'
@@ -15,6 +15,7 @@ GUID = '3dede632-fde4-4cc6-85df-9f5cfd6cd124'
 
 # Author of this module
 Author = 'Tobin Jones'
+Author = 'Stephen Owen'
 
 # Copyright statement for this module
 Copyright = 'Licensed under the MIT license'
@@ -50,10 +51,10 @@ PowerShellVersion = '3.0'
 # ScriptsToProcess = @()
 
 # Type files (.ps1xml) to be loaded when importing this module
-TypesToProcess = @('PowerReddit.ps1xml')
+TypesToProcess = @('PSReddit.ps1xml')
 
 # Format files (.ps1xml) to be loaded when importing this module
-FormatsToProcess = @('PowerReddit.format.ps1xml')
+FormatsToProcess = @('PSReddit.format.ps1xml')
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
 # NestedModules = @()
