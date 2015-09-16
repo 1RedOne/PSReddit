@@ -84,5 +84,43 @@
                 </TableRowEntries>
             </TableControl>
         </View>
+        <View>
+            <Name>PSReddit.User</Name>
+            <ViewSelectedBy>
+                <TypeName>PSReddit.User</TypeName>
+            </ViewSelectedBy>
+            <TableControl>
+                <TableHeaders>
+                    <TableColumnHeader>
+                        <Width>7</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Width>18</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Width>5</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader/>
+                </TableHeaders>
+                <TableRowEntries>
+                    <TableRowEntry>
+                        <TableColumnItems>
+                            <TableColumnItem>
+                                <PropertyName>name</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>created</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>comment_karma</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>link_karma</PropertyName>
+                            </TableColumnItem>
+                        </TableColumnItems>
+                    </TableRowEntry>
+                </TableRowEntries>
+            </TableControl>
+        </View>
     </ViewDefinitions>
 </Configuration>

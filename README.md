@@ -1,10 +1,10 @@
-PowerReddit
+PSReddit
 ===========
 This is a set of tools for browsing Reddit using the Powershell command line.
 
 Installation
 ------------
- * Copy the "PowerReddit" folder into your module path. Note: You can find an
+ * Copy the "PSReddit" folder into your module path. Note: You can find an
 appropriate directory by running `$ENV:PSModulePath.Split(';')`.
  * Run `Import-Module PowerReddit` from your PowerShell command prompt.
 
