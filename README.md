@@ -20,7 +20,7 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
  
 ![approve oAuth and away you go!](https://github.com/1RedOne/PSReddit/blob/master/img/Approve.png)
  
- ####Credentials persist in secure storage and are automatically imported when you use a cmdlet in this module!  
+ Credentials persist in secure storage and are automatically imported when you use a cmdlet in this module!
  
     Get-RedditAccount
    
