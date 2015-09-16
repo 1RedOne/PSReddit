@@ -12,13 +12,15 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
  -----
  
  Register for a Reddit API account here, [Reddit Application Preferences](https://www.reddit.com/prefs/apps), and choose a Script based Application.  Make note of your ClientSecret, ClientID and RedirectURI (which can be anything).
- 
+ ![Copy these values](https://github.com/1RedOne/PSReddit/blob/master/img/API.png)
  
 ###Account###
     Connect-RedditAccount -ClientID $clientID -redirectURI $redirectURI -force -ClientSecret $ClientSecret
     #oAuth Window will be displayed 
  
- [oauthimage]
+![approve oAuth and away you go!](https://github.com/1RedOne/PSReddit/blob/master/img/Approve.png)
+ 
+ ####Credentials persist in secure storage and are automatically imported when you use a cmdlet in this module!  
  
     Get-RedditAccount
    
