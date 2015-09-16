@@ -10,6 +10,32 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
 
  Usage
  -----
+ 
+ Register for a Reddit API account here, [Reddit Application Preferences](https://www.reddit.com/prefs/apps), and choose a Script based Application.  Make note of your ClientSecret, ClientID and RedirectURI (which can be anything).
+ 
+ 
+###Account###
+    Connect-RedditAccount -ClientID $clientID -redirectURI $redirectURI -force -ClientSecret $ClientSecret
+    #oAuth Window will be displayed 
+ 
+ [oauthimage]
+ 
+    Get-RedditAccount
+   
+    name               : 1RedOne
+    hide_from_robots   : False
+    gold_creddits      : 0
+    link_karma         : 2674
+    comment_karma      : 19080
+    over_18            : True
+    is_gold            : False
+    is_mod             : False
+    gold_expiration    : 
+    has_verified_email : True
+    inbox_count        : 2
+    Created Date       : 1/20/2010 6:44:21 PM
+
+... gets you information about your account including karma and account creation date
 
 ###Links###
 
