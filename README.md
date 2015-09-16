@@ -14,7 +14,7 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
  Register for a Reddit API account here, [Reddit Application Preferences](https://www.reddit.com/prefs/apps), and choose a Script based Application.  Make note of your ClientSecret, ClientID and RedirectURI (which can be anything).
  ![Copy these values](https://github.com/1RedOne/PSReddit/blob/master/img/API.png)
  
-###Account###
+###Connecting your Account###
     Connect-RedditAccount -ClientID $clientID -redirectURI $redirectURI -force -ClientSecret $ClientSecret
     #oAuth Window will be displayed 
  
@@ -72,9 +72,14 @@ browser
 
 ##Authentication##
 
-    Connect-RedditSession
-    Get-RedditUserInfo
-    Disconnect-RedditSession
-
+Authentication is handled using oAuth via two private function cmdlets, Show-oAuthWindow being the most important of the two.  If you've got another project and you're here because you need some reference for handling oAuth using PowerShell, this will be the cmdlet you want.  It's found in the Module\Private folder.
+    Connect-RedditAccount
+ 
 ... logs you in, gets information about the logged in user, then logs out.
 
+###To come###
+
+* Making Posts
+* imgur uploads
+* Your suggestions?
+* Multiple Account Support
