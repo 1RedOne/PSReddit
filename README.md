@@ -1,6 +1,6 @@
 PSReddit
 ===========
-This is a set of tools for browsing Reddit using the Powershell command line.
+This is a set of tools for browsing Reddit using the Powershell command line. 
 
 Installation
 ------------
@@ -21,6 +21,8 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
 ![approve oAuth and away you go!](https://github.com/1RedOne/PSReddit/blob/master/img/Approve.png)
  
  Credentials persist in secure storage and are automatically imported when you use a cmdlet in this module.
+ 
+ Once connected, you can connect to any of the endpoints [listed in the Reddit API Documentation here.](https://www.reddit.com/dev/api)
  
     Get-RedditAccount
    
