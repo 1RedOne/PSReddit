@@ -14,8 +14,7 @@ ModuleVersion = '1.0'
 GUID = '3dede632-fde4-4cc6-85df-9f5cfd6cd124'
 
 # Author of this module
-Author = 'Tobin Jones'
-Author = 'Stephen Owen'
+Author = 'Tobin Jones', 'Stephen Owen'
 
 # Copyright statement for this module
 Copyright = 'Licensed under the MIT license'
