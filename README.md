@@ -6,7 +6,7 @@ Installation
 ------------
  * Copy the "PSReddit" folder into your module path. Note: You can find an
 appropriate directory by running `$ENV:PSModulePath.Split(';')`.
- * Run `Import-Module PowerReddit` from your PowerShell command prompt.
+ * Run `Import-Module PSReddit` from your PowerShell command prompt.
 
  Usage
  -----
@@ -20,7 +20,7 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
  
 ![approve oAuth and away you go!](https://github.com/1RedOne/PSReddit/blob/master/img/Approve.png)
  
- Credentials persist in secure storage and are automatically imported when you use a cmdlet in this module!
+ Credentials persist in secure storage and are automatically imported when you use a cmdlet in this module.
  
     Get-RedditAccount
    
@@ -39,7 +39,9 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
 
 ... gets you information about your account including karma and account creation date
 
-###Links###
+####Links####
+
+**Most of these are out of date with the new Rest method, and will be revamped**
 
     Get-RedditLink
 
