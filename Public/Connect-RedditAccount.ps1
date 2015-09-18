@@ -1,4 +1,36 @@
-﻿Function Connect-RedditAccount {
+﻿<#
+.Synopsis
+   Use this cmdlet to connect to your Reddit account from PowerShell
+.DESCRIPTION
+   Use this cmdlet to connect to your Reddit account from PowerShell.You'll first need to register for an Register for a Reddit API account here, https://www.reddit.com/prefs/apps, and choose a Script based Application.  
+   
+   Make note of your ClientSecret, ClientID and RedirectURI (which can be anything).  This cmdlet displays a login window to allow a user to provision access to their account by means of oAuth.  
+   
+   The permissions requested are: identity, history, mysubreddits, read, report, save, submit
+.EXAMPLE
+   Connect-RedditAccount -ClientID $ClientID -ClientSecret $ClientSecret -RedirectURI $RedirectURI
+.EXAMPLE
+   Another example of how to use this cmdlet
+.INPUTS
+   Inputs to this cmdlet (if any)
+.OUTPUTS
+   Output from this cmdlet (if any)
+.NOTES
+   You'll first need to register for an Register for a Reddit API account here, https://www.reddit.com/prefs/apps, and choose a Script based Application.  Make note of your ClientSecret, ClientID and RedirectURI (which can be anything).
+.COMPONENT
+   The component this cmdlet belongs to
+.ROLE
+   The role this cmdlet belongs to
+.FUNCTIONALITY
+   The functionality that best describes this cmdlet
+.LINK
+   https://www.reddit.com/dev/api
+    For Reference for the API
+   https://github.com/1RedOne/PSReddit/
+    The project homepage on GitHub
+   
+#>
+Function Connect-RedditAccount {
 [CmdletBinding()]
 param(
     $ClientSecret,

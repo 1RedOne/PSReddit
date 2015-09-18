@@ -27,15 +27,24 @@
     {
         #Import the config
         $password = Import-Clixml -Path $configDir -ErrorAction STOP | ConvertTo-SecureString
-        $refreshToken = Import-Clixml -Path $refreshToken -ErrorAction STOP | ConvertTo-SecureString
+        
      }
     catch {
     Write-Warning "Corrupt Password file found, rerun with -Force to fix this"
-    BREAK
+    }
+    
+    Try
+    {
+        #Import the config
+        
+        $refreshToken = Import-Clixml -Path $refreshToken -ErrorAction STOP | ConvertTo-SecureString
+     }
+    catch {
+    Write-Warning "Corrupt refresh token file found, rerun with -Force to fix this"
     }
            
-    Get-DecryptedValue -inputObj $password -name PSReddit_accessToken
-    Get-DecryptedValue -inputObj $refreshToken -name PSReddit_refreshToken
+    if ($password){Get-DecryptedValue -inputObj $password -name PSReddit_accessToken}
+    if($refreshToken){Get-DecryptedValue -inputObj $refreshToken -name PSReddit_refreshToken}
 
     
 
