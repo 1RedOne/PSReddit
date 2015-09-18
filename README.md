@@ -1,24 +1,28 @@
 PSReddit
 ===========
-This is a set of tools for browsing Reddit using the Powershell command line.
+This is a set of tools for browsing Reddit using the Powershell command line. 
 
 Installation
 ------------
  * Copy the "PSReddit" folder into your module path. Note: You can find an
 appropriate directory by running `$ENV:PSModulePath.Split(';')`.
- * Run `Import-Module PowerReddit` from your PowerShell command prompt.
+ * Run `Import-Module PSReddit` from your PowerShell command prompt.
 
  Usage
  -----
  
  Register for a Reddit API account here, [Reddit Application Preferences](https://www.reddit.com/prefs/apps), and choose a Script based Application.  Make note of your ClientSecret, ClientID and RedirectURI (which can be anything).
+ ![Copy these values](https://github.com/1RedOne/PSReddit/blob/master/img/API.png)
  
- 
-###Account###
+###Connecting your Account###
     Connect-RedditAccount -ClientID $clientID -redirectURI $redirectURI -force -ClientSecret $ClientSecret
     #oAuth Window will be displayed 
  
- [oauthimage]
+![approve oAuth and away you go!](https://github.com/1RedOne/PSReddit/blob/master/img/Approve.png)
+ 
+ Credentials persist in secure storage and are automatically imported when you use a cmdlet in this module.
+ 
+ Once connected, you can connect to any of the endpoints [listed in the Reddit API Documentation here.](https://www.reddit.com/dev/api)
  
     Get-RedditAccount
    
@@ -37,7 +41,9 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
 
 ... gets you information about your account including karma and account creation date
 
-###Links###
+####Links####
+
+**Most of these are out of date with the new Rest method, and will be revamped**
 
     Get-RedditPost
 
@@ -70,9 +76,21 @@ browser
 
 ##Authentication##
 
+<<<<<<< HEAD
     Connect-RedditAccount
     Get-RedditAccount
     Disconnect-RedditAccount - coming soon
 
+=======
+Authentication is handled using oAuth via two private function cmdlets, Show-oAuthWindow being the most important of the two.  If you've got another project and you're here because you need some reference for handling oAuth using PowerShell, this will be the cmdlet you want.  It's found in the Module\Private folder.
+    Connect-RedditAccount
+ 
+>>>>>>> origin/master
 ... logs you in, gets information about the logged in user, then logs out.
 
+###To come###
+
+* Making Posts
+* imgur uploads
+* Your suggestions?
+* Multiple Account Support
