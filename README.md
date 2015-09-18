@@ -39,11 +39,11 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
 
 ###Links###
 
-    Get-RedditLink
+    Get-RedditPost
 
 ... gets you a nicely formatted table of the current front page links.
 
-    Get-RedditLink -r Powershell, Sysadmin
+    Get-RedditLink -r Powershell
 
 ... does the same but for the subreddits listed.
 
@@ -58,7 +58,7 @@ in a nicely paginated format.
 ... will open the link with the top score on the front page in your default
 browser
 
-###Comments###
+###Comments - coming soon!###
 
     Get-RedditLink | Get-RedditComment
 
@@ -70,9 +70,9 @@ browser
 
 ##Authentication##
 
-    Connect-RedditSession
-    Get-RedditUserInfo
-    Disconnect-RedditSession
+    Connect-RedditAccount
+    Get-RedditAccount
+    Disconnect-RedditAccount - coming soon
 
 ... logs you in, gets information about the logged in user, then logs out.
 

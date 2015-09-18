@@ -47,7 +47,7 @@ param(
                 $result = Invoke-RestMethod  https://ssl.reddit.com/api/v1/access_token -Method Post -Body @{client_id=$clientId; state=$guid ; redirect_uri=$redirectURI; grant_type="authorization_code"; code=$Reddit_authCode} -ContentType "application/x-www-form-urlencoded" -ErrorAction STOP -Credential $credential
                  }
           catch {
-                Write-Warning "Something didn't work"
+                Write-Warning "Something didn't work, this is normally caused by an internet flub, try again in a few minutes"
                 Write-debug "Test the -body params for the Rest command"
             }
             
