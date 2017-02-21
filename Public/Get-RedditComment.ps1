@@ -2,7 +2,7 @@
 .Synopsis
     Gets the comments of a Reddit link, or several.
 .DESCRIPTION
-    Currently the objects are a bit boned, and you can't get into too much detail, so that's no good.  Trust me when I say it will get better.
+    Uses the Reddit API to get comments made on a given link, collection of posts or the id.
 .EXAMPLE
     Get-RedditComment -id "3i9psm"
 .EXAMPLE
@@ -34,10 +34,12 @@ Param (
             {($id -like "t3_*")}
             {
                 $id = $id -replace "t3_", ""
+                break
             }  
             {($id -like "http*")}
             {
                 $id = $id.Split("/")[6]
+                break
             }
         }
 
@@ -48,6 +50,6 @@ Param (
 
         # Comments have a type 't1' in Reddit API
         $comments = $listings | ForEach-Object { $_.data.children } | Where-Object kind -eq 't1' | Select-Object -Expand data
-        $comments | ForEach-Object { $_.PSObject.TypeNames.Insert(0,'PowerReddit.Comment'); $_ }#>
+        $comments | ForEach-Object { $_.PSObject.TypeNames.Insert(0,'PowerReddit.Comment'); $_ }
     }
 }
