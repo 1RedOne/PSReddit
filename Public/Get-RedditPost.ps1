@@ -60,13 +60,11 @@ Param (
     # Construct the Uri. Multiple subreddits can be joined with plusses
     #$uri = 'http://www.reddit.com/r/{0}.json' -f [string]::Join('+', $Name)
 
-    
-
     $uri = "https://oAuth.reddit.com/r/$Name/hot" ; 
     try {$response = (Invoke-RestMethod $uri -Headers @{"Authorization" = "bearer $accessToken"} -ErrorAction STOP) }
-   catch{write-warning "Authentication failed, we should do something here"}
-   
-    $response.data.children.data | Select ups,Title,URL,name,created,permalink | more
+    catch{write-warning "Authentication failed, we should do something here"}
+
+    $response.data.children.data | Select ups,Title,URL,name,created,permalink
 
     #Figure out the age of a post
     write-debug "figure out select logic for age of post"
