@@ -39,7 +39,7 @@ param(
     [Switch]$force)
     
     $configDir = "$Env:AppData\WindowsPowerShell\Modules\PSReddit\0.1\Config.ps1xml"
-    $refreshToken = "$Env:AppData\WindowsPowerShell\Modules\PSReddit\0.1\Config.Refresh.ps1xml"
+    $refreshTokenPath = "$Env:AppData\WindowsPowerShell\Modules\PSReddit\0.1\Config.Refresh.ps1xml"
     #look for a stored password
     
 
@@ -48,11 +48,11 @@ param(
             #create the file to store our Access Token
             Write-Verbose "cached Access Code not found, or the user instructed us to refresh"
             
-            if (-not (Test-Path $refreshToken)){New-item -Force -Path $refreshToken -ItemType file }
+            if (-not (Test-Path $refreshTokenPath)){New-item -Force -Path $refreshTokenPath -ItemType file }
             New-item -Force -Path "$configDir" -ItemType File
     
             $guid = [guid]::NewGuid()
-            $URL = "https://www.reddit.com/api/v1/authorize?client_id=$clientID&response_type=code&state=$GUID&redirect_uri=$redirectURI&duration=permanent&scope=identity,history,mysubreddits,read,report,save,submit"
+            $URL = "https://www.reddit.com/api/v1/authorize?client_id=$clientID&response_type=code&state=$GUID&redirect_uri=$redirectURI&duration=permanent&scope=identity,history,mysubreddits,read,report,privatemessages,save,submit"
 
             #Display an oAuth login prompt for the user to user authorize our application, returns uri
             Show-OAuthWindow -url $URL
@@ -90,12 +90,12 @@ param(
             
             Write-Verbose "Storing token in $configDir"
             #store the token
-            $password = ConvertTo-SecureString $PSReddit_accessToken -AsPlainText -Force
+            $password = ConvertTo-SecureString $result.access_token -AsPlainText -Force
             $password | ConvertFrom-SecureString | Export-Clixml $configDir -Force
 
-            Write-verbose "Storing refresh token in $refreshToken"
-            $password = ConvertTo-SecureString $result.refresh_token -AsPlainText -Force
-            $password | ConvertFrom-SecureString | Export-Clixml $refreshToken -Force
+            Write-verbose "Storing refresh token in $refreshTokenPath"
+            $refresh = ConvertTo-SecureString $result.refresh_token -AsPlainText -Force
+            $refresh | ConvertFrom-SecureString | Export-Clixml $refreshTokenPath -Force
             
         }
         else{
@@ -103,7 +103,7 @@ param(
             Write-Verbose "We're looking for a stored token in $configDir"
             try {
                  $password = Import-Clixml -Path $configDir -ErrorAction STOP | ConvertTo-SecureString
-                 $refreshToken = Import-Clixml -Path $refreshToken -ErrorAction STOP | ConvertTo-SecureString
+                 $refreshToken = Import-Clixml -Path $refreshTokenPath -ErrorAction STOP | ConvertTo-SecureString
                  }
           catch {
             Write-Warning "Corrupt Password file found, rerun with -Force to fix this"
@@ -112,11 +112,7 @@ param(
            
             Get-DecryptedValue -inputObj $password -name PSReddit_accessToken
             Get-DecryptedValue -inputObj $refreshToken -name PSReddit_refreshToken
-            <#
-            $Ptr = [System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($password)
-            $result = [System.Runtime.InteropServices.Marshal]::PtrToStringUni($Ptr)
-            [System.Runtime.InteropServices.Marshal]::ZeroFreeCoTaskMemUnicode($Ptr)
-            $global:PSReddit_accessToken = $result #>
+            
             'Found cached Cred'
             continue
         }
